@@ -1,0 +1,41 @@
+@import "./reset";
+@import "./errorImage";
+
+.form {
+    width: 100%;
+    max-width: 370px;
+    margin: 20px auto;
+    padding: 20px 10px;
+    border-radius: 10px;
+}
+
+.movies {
+    padding: 20px 0;
+    display: grid;
+    grid-gap: 20px;
+    align-items: start;
+    grid-template-columns: 1fr 3fr;
+
+    &__filters {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-rows: auto;
+    }
+
+    &__content {
+        display: grid;
+        grid-gap: 20px;
+    }
+
+    &__list {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    &__search {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-columns: 3fr 1fr;
+    }
+}
