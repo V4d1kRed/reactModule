@@ -4,13 +4,21 @@ import MoviesItem from "../moviesItem/MoviesItem";
 import {Box} from "@mui/material";
 import PaginationItem from "../../UI/paginationItem/PaginationItem";
 import {setPage} from "../../../store/reducers/moviesSlice";
+import {fetchMoviesAsync, fetchMoviesByFiltersAsync, fetchMoviesBySearchQueryAsync} from "../../../thunk";
 
 const MoviesList = () => {
   const dispatch = useDispatch();
-  const {movies, page, totalPages} = useSelector(state => state.movies);
+  const {movies, page, totalPages, searchQuery, searchGenres, searchLanguage} = useSelector(state => state.movies);
 
-  const changePage = (event, value) => {
-    dispatch(setPage(value));
+  const changePage = (event, page) => {
+    dispatch(setPage(page));
+    if (searchGenres.length || searchLanguage.length) {
+      dispatch(fetchMoviesByFiltersAsync(page, searchGenres, searchLanguage));
+    } else if (searchQuery) {
+      dispatch(fetchMoviesBySearchQueryAsync(page, searchQuery));
+    } else {
+      dispatch(fetchMoviesAsync(page));
+    }
   };
 
   return (
@@ -18,7 +26,11 @@ const MoviesList = () => {
       <Box className="movies__list">
         {movies.map(movie => <MoviesItem movie={movie} key={movie.id}/>)}
       </Box>
-      <PaginationItem count={totalPages} page={page} onChange={changePage}/>
+      {
+        totalPages > 1
+          ? <PaginationItem count={totalPages} page={page} onChange={changePage}/>
+          : null
+      }
     </Fragment>
   );
 };

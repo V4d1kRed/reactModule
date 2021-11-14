@@ -30,12 +30,118 @@
     &__list {
         display: grid;
         grid-gap: 20px;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     &__search {
         display: grid;
         grid-gap: 20px;
-        grid-template-columns: 3fr 1fr;
+        grid-template-columns: 4fr 1fr;
+    }
+
+    &__rating {
+        font-weight: 700;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 5px;
+        width: 40px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #032541;
+
+        &--red {
+            color: #ff1744
+        }
+
+        &--orange {
+            color: #ff9100;
+        }
+
+        &--green {
+            color: #00e676;
+        }
+    }
+}
+
+.movie {
+    &__image {
+        border-radius: 10px;
+    }
+
+    &__body {
+        height: calc(100vh - 64px);
+        color: #ffffff;
+        padding: 60px 0;
+        display: grid;
+        align-items: center;
+        column-gap: 20px;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    &__info {
+        display: grid;
+        row-gap: 10px;
+        justify-items: start;
+    }
+}
+
+.account {
+    padding: 20px 0;
+    height: 90vh;
+    display: grid;
+    gap: 40px;
+    align-items: center;
+    justify-content: center;
+    grid-auto-flow: column;
+
+    &__image {
+        width: 100%;
+        max-width: 350px;
+        border-radius: 50%;
+    }
+
+    &__info {
+        & p {
+            font-size: 26px;
+        }
+
+        & p span {
+            font-weight: 700;
+        }
+    }
+}
+
+.main {
+    padding: 20px 0;
+}
+
+.favorites {
+    padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .movies {
+        &__list {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    .movie {
+        &__body {
+            height: calc(100vh - 56px);
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .movies {
+        &__list {
+            grid-template-columns: 1fr;
+        }
     }
 }

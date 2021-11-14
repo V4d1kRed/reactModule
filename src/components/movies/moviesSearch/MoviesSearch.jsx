@@ -1,21 +1,20 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {Box, Button, TextField} from "@mui/material";
-import {fetchFoundMoviesAsync} from "../../../thunk";
+import {fetchMoviesBySearchQueryAsync} from "../../../thunk";
 import {useDispatch, useSelector} from "react-redux";
+import {setPage, setSearchQuery} from "../../../store/reducers/moviesSlice";
 
 const MoviesSearch = () => {
   const dispatch = useDispatch();
-  const [searchQuery, setSearchQuery] = useState('');
-  const {page} = useSelector(state => state.movies);
+  const {page, searchQuery} = useSelector(state => state.movies);
 
   const handleChangeSearch = (event) => {
-    setSearchQuery(event.target.value);
+    dispatch(setPage(1));
+    dispatch(setSearchQuery(event.target.value));
   };
 
   const handleClickSearch = () => {
-    if (searchQuery) {
-      dispatch(fetchFoundMoviesAsync(page, searchQuery));
-    }
+    dispatch(fetchMoviesBySearchQueryAsync(page, searchQuery));
   };
 
   return (
@@ -29,7 +28,13 @@ const MoviesSearch = () => {
         label="Search for a movie..."
         onChange={handleChangeSearch}
       />
-      <Button variant="contained" onClick={handleClickSearch}>Search</Button>
+      <Button
+        disabled={searchQuery ? false : true}
+        variant="contained"
+        onClick={handleClickSearch}
+      >
+        Search
+      </Button>
     </Box>
   );
 };

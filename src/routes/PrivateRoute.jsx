@@ -6,12 +6,16 @@ const PrivateRoute = ({path, component: Component}) => {
   const {login} = useSelector(state => state.user);
 
   return (
-    <Route path={path} exact render={(props) => {
-      if (login) {
-        return <Component/>;
-      }
-      return <Redirect to="/login"/>
-    }}/>
+    <Route
+      exact
+      path={path}
+      render={(props) => {
+        if (login) {
+          return <Component/>
+        }
+        return <Redirect to="/login"/>
+      }}
+    />
   );
 };
 

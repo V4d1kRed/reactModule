@@ -8,7 +8,7 @@ const RoutesList = () => {
     <Switch>
       {
         routes.map((route, index) => (
-          route.isPrivat
+          route.isPrivate
             ? (<PrivateRoute key={index} path={route.path} component={route.component}/>)
             : (<Route key={index} path={route.path} component={route.component} exact/>)
         ))

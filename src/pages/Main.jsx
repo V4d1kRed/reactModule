@@ -1,10 +1,12 @@
 import React from 'react';
-import {Container} from "@mui/material";
+import {Box, Container} from "@mui/material";
 
 const Main = () => {
   return (
     <Container>
-      <h1>Main page</h1>
+      <Box className="main">
+        <h1>Main page</h1>
+      </Box>
     </Container>
   );
 };

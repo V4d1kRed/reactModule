@@ -14,10 +14,10 @@ const userSlice = createSlice({
       state.currentUser = action.payload;
     },
     setLogin(state) {
-      state.login = !state.login;
+      state.login = true;
     },
     setRegistration(state) {
-      state.registration = !state.registration;
+      state.registration = true;
     },
   }
 });

@@ -1,11 +1,11 @@
 import React from 'react';
 import {Card, CardContent, CardMedia, Typography} from "@mui/material";
-import {useHistory} from "react-router-dom";
+import {getColorRating} from "../../../utils/getColorRating";
 import {getImageUrl} from "../../../utils/getImageUrl";
 import defaultImage from '../../../images/defaultImage.jpg';
-import {getColorRating} from "../../../utils/getColorRating";
+import {useHistory} from "react-router-dom";
 
-const MoviesItem = ({movie}) => {
+const MoviesFavoriteItem = ({movie}) => {
   const history = useHistory();
 
   const handleClickTitle = () => {
@@ -27,7 +27,7 @@ const MoviesItem = ({movie}) => {
         image={movie.poster_path ? getImageUrl(movie.poster_path) : defaultImage}
         alt={'Poster: ' + movie.title}
       />
-      <CardContent sx={{minHeight: '75px','&:last-child': {padding: '10px 15px'}}}>
+      <CardContent sx={{minHeight: '75px', '&:last-child': {padding: '10px 15px'}}}>
         <Typography
           noWrap
           variant="h6"
@@ -41,11 +41,11 @@ const MoviesItem = ({movie}) => {
           {movie.release_date}
         </Typography>
         <Typography className={`movies__rating ${getColorRating(movie.vote_average)}`} variant="span">
-           {movie.vote_average}
+          {movie.vote_average}
         </Typography>
       </CardContent>
     </Card>
   );
 };
 
-export default MoviesItem;
+export default MoviesFavoriteItem;

@@ -5,7 +5,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import {Box, Button, MenuItem, TextField} from "@mui/material";
 import {useDispatch} from "react-redux";
-import {setCurrentUser, setRegistration} from "../../../store/reducers/userSlice";
+import {setRegistration} from "../../../store/reducers/userSlice";
 import * as yup from "yup";
 import {yupResolver} from "@hookform/resolvers/yup";
 
@@ -60,7 +60,6 @@ const RegistrationForm = () => {
   };
 
   const onSubmit = (data) => {
-    dispatch(setCurrentUser(data));
     dispatch(setRegistration());
     setDateOfBirth(null);
     setGender('');

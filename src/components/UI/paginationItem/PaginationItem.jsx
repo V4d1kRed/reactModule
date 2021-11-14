@@ -4,7 +4,15 @@ import {Stack, Pagination} from "@mui/material";
 const PaginationItem = ({count, page, onChange}) => {
   return (
     <Stack spacing={2} sx={{alignItems: 'center'}}>
-      <Pagination count={count} page={page} onChange={onChange} variant="outlined" shape="rounded" siblingCount={3}/>
+      <Pagination
+        shape="rounded"
+        variant="outlined"
+        page={page}
+        count={count}
+        onChange={onChange}
+        siblingCount={1}
+        boundaryCount={1}
+      />
     </Stack>
   );
 };

@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Container} from "@mui/material";
+import {Box} from "@mui/material";
 import {useParams} from "react-router-dom";
 import {fetchMovieAsync} from "../thunk/movies";
 import {useDispatch, useSelector} from "react-redux";
@@ -16,13 +16,13 @@ const Movie = () => {
   }, [dispatch, movieId]);
 
   return (
-    <Container>
+    <Box className="movie">
       {
         loading
           ? <Progress/>
           : <MovieItem/>
       }
-    </Container>
+    </Box>
   );
 };
 
