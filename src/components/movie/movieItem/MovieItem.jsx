@@ -61,6 +61,8 @@ const MovieItem = () => {
               <h1 className="movie__title">{movie.title} {movie.release_date ? `(${movie.release_date})` : null}</h1>
               <Box sx={{display: 'flex', alignItems: 'center', gap: '5px'}}>
                 <p className={`movie__rating ${getColorRating(movie.vote_average)}`}>{movie.vote_average}</p>
+                <p>{movie.original_language ? movie.original_language : null}</p>
+                <p>{movie.hasOwnProperty('genres') ? movie.genres.map(genre => genre.name).join(', ') : null}</p>
                 <p>{movie.budget ? `${movie.budget}$` : null}</p>
                 <p>{movie.runtime ? `${movie.runtime}m` : null}</p>
                 <IconButton color={favorite ? 'success' : 'primary'} onClick={handleClick}>

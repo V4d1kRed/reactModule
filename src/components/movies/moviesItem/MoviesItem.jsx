@@ -4,6 +4,7 @@ import {useHistory} from "react-router-dom";
 import {getImageUrl} from "../../../utils/getImageUrl";
 import defaultImage from '../../../images/defaultImage.jpg';
 import {getColorRating} from "../../../utils/getColorRating";
+import PropTypes from "prop-types";
 
 const MoviesItem = ({movie}) => {
   const history = useHistory();
@@ -46,6 +47,10 @@ const MoviesItem = ({movie}) => {
       </CardContent>
     </Card>
   );
+};
+
+MoviesItem.propTypes = {
+  movie: PropTypes.object,
 };
 
 export default MoviesItem;

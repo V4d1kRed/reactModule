@@ -61,10 +61,10 @@ const MoviesFilters = () => {
   };
 
   const handleClickReset = () => {
-    dispatch(setPage(1));
     if (movies.length) {
       dispatch(fetchMoviesAsync(page));
     }
+    dispatch(setPage(1));
     dispatch(setSearchQuery(''));
     dispatch(setSearchGenres([]));
     dispatch(setSearchLanguage(''));

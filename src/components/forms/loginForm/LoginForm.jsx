@@ -8,7 +8,11 @@ import {fetchRequestToken} from "../../../apis";
 const schema = yup.object({
   username: yup
     .string()
-    .required('Username is required field'),
+    .required('Username is required field')
+    .matches(/^[a-z](A-z}0-9}_|.){1,15}$/,
+      `Username should be correct format,
+      must start with a small letter and include letters,
+      numbers or special characters "." and "_"`),
   password: yup
     .string()
     .required('Password is required field')

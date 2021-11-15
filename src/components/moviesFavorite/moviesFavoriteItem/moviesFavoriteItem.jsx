@@ -4,6 +4,7 @@ import {getColorRating} from "../../../utils/getColorRating";
 import {getImageUrl} from "../../../utils/getImageUrl";
 import defaultImage from '../../../images/defaultImage.jpg';
 import {useHistory} from "react-router-dom";
+import PropTypes from "prop-types";
 
 const MoviesFavoriteItem = ({movie}) => {
   const history = useHistory();
@@ -46,6 +47,10 @@ const MoviesFavoriteItem = ({movie}) => {
       </CardContent>
     </Card>
   );
+};
+
+MoviesFavoriteItem.propTypes = {
+  movie: PropTypes.object,
 };
 
 export default MoviesFavoriteItem;

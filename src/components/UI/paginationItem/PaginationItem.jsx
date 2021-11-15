@@ -1,5 +1,6 @@
 import React from 'react';
 import {Stack, Pagination} from "@mui/material";
+import PropTypes from "prop-types";
 
 const PaginationItem = ({count, page, onChange}) => {
   return (
@@ -15,6 +16,12 @@ const PaginationItem = ({count, page, onChange}) => {
       />
     </Stack>
   );
+};
+
+PaginationItem.propTypes = {
+  count: PropTypes.number,
+  page: PropTypes.number,
+  onChange: PropTypes.func,
 };
 
 export default PaginationItem;
