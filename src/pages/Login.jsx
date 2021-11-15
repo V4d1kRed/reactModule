@@ -10,7 +10,7 @@ const Login = () => {
   return (
     <Container>
       {
-        !registration
+        registration
           ? <LoginForm/>
           : <RegistrationForm/>
       }
